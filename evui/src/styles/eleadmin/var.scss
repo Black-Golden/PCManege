@@ -1,0 +1,22 @@
+/** Variables */
+
+$--background-color-body: #F0F2F5 !default; // 页面背景颜色
+$--background-side-dark: #191A23 !default; // 侧边栏暗色背景颜色
+$--size-side-width: 256px !default; // 侧边栏宽度
+$--size-side-width-collapse: 60px !default; // 侧边栏折叠后宽度
+$--size-head-height: 60px !default; // 顶栏高度
+$--size-tab-height: 40px !default; // 页签高度
+$--padding-tab-card: 10px !default; // 卡片式页签边距
+$--shadow-head-light: 0 1px 3px rgba(0, 0, 0, .08) !default; // 顶栏亮色阴影
+$--shadow-head-dark: 0 1px 3px rgba(0, 0, 0, .08) !default; // 顶栏暗色阴影
+$--shadow-logo-light: 1px 0px 3px rgba(0, 0, 0, .08) !default; // logo亮色阴影
+$--shadow-side-light: 1px 3px 3px rgba(0, 0, 0, .08) !default; // 侧栏亮色阴影
+$--shadow-logo-dark: 0 0px 4px rgba(0, 21, 41, .35) !default; // logo暗色阴影
+$--shadow-side-dark: 0 4px 4px rgba(0, 21, 41, .35) !default; // 侧栏暗色阴影
+$--color-logo-light: rgba(0, 0, 0, .75) !default; // logo亮色文字颜色
+$--color-logo-dark: rgba(255, 255, 255, .9) !default; // logo暗色文字颜色
+$--font-size-logo: 20px !default;
+
+$--z-index-layout: 999 !default; // 框架布局最小z-index
+
+@import "~element-ui/packages/theme-chalk/src/common/var";

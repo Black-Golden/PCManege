@@ -1,0 +1,206 @@
+/** 暗黑主题 */
+
+$--color-primary: #1890ff;
+
+$--color-success: #52c41a;
+$--color-warning: #faad14;
+$--color-danger: #ff4d4f;
+
+$--color-success-light: rgba($--color-success, .3);
+$--color-warning-light: rgba($--color-warning, .3);
+$--color-danger-light: rgba($--color-danger, .3);
+
+/* 背景色 */
+$--color-white: #141414;
+$--color-black: #FFFFFF;
+$--background-color-base: #1F1F1F;
+$--background-color-body: #000000;
+
+/* 文字颜色 */
+$--color-text-primary: rgba(255, 255, 255, .85);
+$--color-text-regular: rgba(255, 255, 255, .65);
+$--color-text-secondary: rgba(255, 255, 255, .45);
+$--color-text-placeholder: rgba(255, 255, 255, .25);
+
+/* 边框色 */
+$--border-color-base: rgba(255, 255, 255, .15);
+$--border-color-light: rgba(255, 255, 255, .1);
+$--border-color-lighter: rgba(255, 255, 255, .05);
+$--border-color-extra-light: rgba(255, 255, 255, .02);
+
+$--popup-modal-background-color: #000000;
+
+$--radio-button-checked-font-color: $--color-black;
+
+/* tooltip */
+$--tooltip-fill: $--background-color-base;
+$--tooltip-color: $--color-black;
+$--tooltip-border-color: $--background-color-base;
+
+/* button */
+$--button-primary-font-color: $--color-black;
+$--button-success-font-color: $--color-black;
+$--button-warning-font-color: $--color-black;
+$--button-danger-font-color: $--color-black;
+
+/* message */
+$--message-background-color: $--background-color-base;
+$--message-info-font-color: $--color-text-regular;
+
+$--color-logo-light: $--color-text-regular; // logo亮色阴影
+$--background-side-dark: $--color-white;
+
+input {
+  background-color: transparent;
+}
+
+// element-ui的css
+@import "~element-ui/packages/theme-chalk/src/pagination.scss";
+@import "~element-ui/packages/theme-chalk/src/dialog.scss";
+@import "~element-ui/packages/theme-chalk/src/autocomplete.scss";
+@import "~element-ui/packages/theme-chalk/src/dropdown.scss";
+@import "~element-ui/packages/theme-chalk/src/dropdown-menu.scss";
+@import "~element-ui/packages/theme-chalk/src/dropdown-item.scss";
+@import "~element-ui/packages/theme-chalk/src/menu.scss";
+@import "~element-ui/packages/theme-chalk/src/submenu.scss";
+@import "~element-ui/packages/theme-chalk/src/menu-item.scss";
+@import "~element-ui/packages/theme-chalk/src/menu-item-group.scss";
+@import "~element-ui/packages/theme-chalk/src/input.scss";
+@import "~element-ui/packages/theme-chalk/src/input-number.scss";
+@import "~element-ui/packages/theme-chalk/src/radio.scss";
+@import "~element-ui/packages/theme-chalk/src/radio-group.scss";
+@import "~element-ui/packages/theme-chalk/src/radio-button.scss";
+@import "~element-ui/packages/theme-chalk/src/checkbox.scss";
+@import "~element-ui/packages/theme-chalk/src/checkbox-button.scss";
+@import "~element-ui/packages/theme-chalk/src/checkbox-group.scss";
+@import "~element-ui/packages/theme-chalk/src/switch.scss";
+@import "~element-ui/packages/theme-chalk/src/select.scss";
+@import "~element-ui/packages/theme-chalk/src/button.scss";
+@import "~element-ui/packages/theme-chalk/src/button-group.scss";
+@import "~element-ui/packages/theme-chalk/src/table.scss";
+@import "~element-ui/packages/theme-chalk/src/table-column.scss";
+@import "~element-ui/packages/theme-chalk/src/date-picker.scss";
+@import "~element-ui/packages/theme-chalk/src/time-select.scss";
+@import "~element-ui/packages/theme-chalk/src/time-picker.scss";
+@import "~element-ui/packages/theme-chalk/src/popover.scss";
+@import "~element-ui/packages/theme-chalk/src/tooltip.scss";
+@import "~element-ui/packages/theme-chalk/src/message-box.scss";
+@import "~element-ui/packages/theme-chalk/src/breadcrumb.scss";
+@import "~element-ui/packages/theme-chalk/src/breadcrumb-item.scss";
+@import "~element-ui/packages/theme-chalk/src/form.scss";
+@import "~element-ui/packages/theme-chalk/src/form-item.scss";
+@import "~element-ui/packages/theme-chalk/src/tabs.scss";
+@import "~element-ui/packages/theme-chalk/src/tab-pane.scss";
+@import "~element-ui/packages/theme-chalk/src/tag.scss";
+@import "~element-ui/packages/theme-chalk/src/tree.scss";
+@import "~element-ui/packages/theme-chalk/src/alert.scss";
+@import "~element-ui/packages/theme-chalk/src/notification.scss";
+@import "~element-ui/packages/theme-chalk/src/slider.scss";
+@import "~element-ui/packages/theme-chalk/src/loading.scss";
+@import "~element-ui/packages/theme-chalk/src/row.scss";
+@import "~element-ui/packages/theme-chalk/src/col.scss";
+@import "~element-ui/packages/theme-chalk/src/upload.scss";
+@import "~element-ui/packages/theme-chalk/src/progress.scss";
+@import "~element-ui/packages/theme-chalk/src/spinner.scss";
+@import "~element-ui/packages/theme-chalk/src/message.scss";
+@import "~element-ui/packages/theme-chalk/src/badge.scss";
+@import "~element-ui/packages/theme-chalk/src/card.scss";
+@import "~element-ui/packages/theme-chalk/src/rate.scss";
+@import "~element-ui/packages/theme-chalk/src/steps.scss";
+@import "~element-ui/packages/theme-chalk/src/step.scss";
+@import "~element-ui/packages/theme-chalk/src/carousel.scss";
+@import "~element-ui/packages/theme-chalk/src/scrollbar.scss";
+@import "~element-ui/packages/theme-chalk/src/carousel-item.scss";
+@import "~element-ui/packages/theme-chalk/src/collapse.scss";
+@import "~element-ui/packages/theme-chalk/src/collapse-item.scss";
+@import "~element-ui/packages/theme-chalk/src/cascader.scss";
+@import "~element-ui/packages/theme-chalk/src/color-picker.scss";
+@import "~element-ui/packages/theme-chalk/src/transfer.scss";
+@import "~element-ui/packages/theme-chalk/src/container.scss";
+@import "~element-ui/packages/theme-chalk/src/header.scss";
+@import "~element-ui/packages/theme-chalk/src/aside.scss";
+@import "~element-ui/packages/theme-chalk/src/main.scss";
+@import "~element-ui/packages/theme-chalk/src/footer.scss";
+@import "~element-ui/packages/theme-chalk/src/timeline.scss";
+@import "~element-ui/packages/theme-chalk/src/timeline-item.scss";
+@import "~element-ui/packages/theme-chalk/src/link.scss";
+@import "~element-ui/packages/theme-chalk/src/divider.scss";
+@import "~element-ui/packages/theme-chalk/src/image.scss";
+@import "~element-ui/packages/theme-chalk/src/calendar.scss";
+@import "~element-ui/packages/theme-chalk/src/backtop.scss";
+@import "~element-ui/packages/theme-chalk/src/infinite-scroll.scss";
+@import "~element-ui/packages/theme-chalk/src/page-header.scss";
+@import "~element-ui/packages/theme-chalk/src/cascader-panel.scss";
+@import "~element-ui/packages/theme-chalk/src/avatar.scss";
+@import "~element-ui/packages/theme-chalk/src/drawer.scss";
+@import "~element-ui/packages/theme-chalk/src/popconfirm.scss";
+
+// css
+@import '../eleadmin/common';
+@import '../eleadmin/extension';
+@import '../eleadmin/menu';
+@import '../eleadmin/layout';
+
+/** 遮罩层 */
+.el-loading-mask {
+  background-color: rgba($--color-white, .9);
+}
+
+/** badge */
+.el-badge__content {
+  color: $--color-black;
+}
+
+/** pagination */
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  color: $--color-black;
+}
+
+/** switch */
+.el-switch__core:after {
+  background-color: $--color-black;
+}
+
+/** checkbox */
+.el-checkbox__inner::after {
+  border-color: $--color-black;
+}
+
+.el-checkbox__input.is-indeterminate .el-checkbox__inner::before {
+  background-color: $--color-black;
+}
+
+/** menu */
+.el-menu {
+  border-right-color: $--border-color-light;
+}
+
+.el-menu.el-menu--horizontal {
+  border-bottom-color: $--border-color-light;
+}
+
+/** tag */
+.el-tag--dark, .el-tag--dark.el-tag--success, .el-tag--dark.el-tag--info, .el-tag--dark.el-tag--warning, .el-tag--dark.el-tag--danger {
+  color: $--color-black;
+}
+
+.el-tag--dark .el-tag__close {
+  color: $--color-black;
+}
+
+/** 空视图 */
+.ele-empty {
+  color: rgba(255, 255, 255, .3);
+}
+
+.ele-empty-icon-default-ellipse {
+  fill: rgb(38, 38, 38);
+}
+
+.ele-empty-icon-default-g {
+  stroke: rgb(67, 67, 67);
+}
+
+.ele-empty-icon-default-path {
+  fill: rgb(38, 38, 38);
+}

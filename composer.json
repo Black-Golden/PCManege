@@ -1,0 +1,76 @@
+{
+    "name": "topthink/think",
+    "description": "the new thinkphp framework",
+    "type": "project",
+    "keywords": [
+        "framework",
+        "thinkphp",
+        "ORM"
+    ],
+    "homepage": "http://thinkphp.cn/",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "liu21st",
+            "email": "liu21st@gmail.com"
+        },
+        {
+            "name": "yunwuxin",
+            "email": "448901948@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "topthink/framework": "^6.0.0",
+        "topthink/think-orm": "^2.0",
+        "topthink/think-captcha": "^3.0",
+        "phpoffice/phpexcel": "^1.8",
+        "topthink/think-multi-app": "^1.0",
+        "aliyuncs/oss-sdk-php": "^2.3",
+        "qcloud/cos-sdk-v5": "^1.3",
+        "qiniu/php-sdk": "^7.2",
+        "workerman/workerman": "^3.5",
+        "workerman/channel": "^1.0",
+        "alipaysdk/easysdk": "2.0",
+        "dh2y/think-qrcode": "^2.0",
+        "mydogger/pinyin": "^1.1",
+        "xaboy/form-builder": "~2.0",
+        "kornrunner/secp256k1": "^0.1.2",
+        "sc0vu/web3.php": "^0.1.4",
+        "simplito/elliptic-php": "^1.0",
+        "stephenhill/base58": "^1.1",
+        "ccxt/ccxt": "^1.70",
+        "workerman/gateway-worker": "^3.0",
+        "phpgangsta/googleauthenticator": "dev-master",
+        "simplesoftwareio/simple-qrcode": "^4.2",
+        "phpmailer/phpmailer": "^6.7"
+
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^4.2",
+        "topthink/think-trace":"^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "app"
+        },
+        "psr-0": {
+            "": "extend/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@php think service:discover",
+            "@php think vendor:publish"
+        ]
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
+    }
+}

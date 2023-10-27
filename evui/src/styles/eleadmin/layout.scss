@@ -1,0 +1,676 @@
+@import 'var';
+
+/** 框架布局 */
+.ele-admin-body {
+  flex: 1;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+/** 顶栏 */
+.ele-admin-header {
+  background-color: $--color-white;
+  box-shadow: $--shadow-head-light;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  z-index: $--z-index-layout + 2;
+
+  /* logo */
+  .ele-admin-logo {
+    color: $--color-logo-light;
+    font-size: $--font-size-logo;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    width: $--size-side-width;
+    height: $--size-head-height;
+    background-color: $--color-white;
+    transition: width .3s ease-in-out, left .3s ease-in-out;
+    box-shadow: $--shadow-logo-light;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Avenir, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+
+    img {
+      width: 32px;
+      height: 32px;
+      display: inline-block;
+    }
+
+    span {
+      margin-left: 10px;
+      display: inline-block;
+      line-height: 1;
+    }
+  }
+
+  .el-menu.el-menu--horizontal {
+    background-color: transparent;
+    border: none;
+
+    & > .el-menu-item {
+      padding: 0 12px;
+      height: $--size-head-height;
+      line-height: $--size-head-height;
+    }
+
+    & > .el-submenu {
+      .el-submenu__title {
+        padding: 0 10px 0 12px;
+        height: $--size-head-height;
+        line-height: $--size-head-height;
+      }
+
+      .el-submenu__icon-arrow {
+        margin-left: 3px;
+      }
+    }
+
+    & > .el-menu-item, & > .el-submenu {
+      float: none;
+      display: inline-block;
+    }
+  }
+
+  .ele-header-nav {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+  }
+
+  .ele-header-left, .ele-header-right {
+    padding: 0 8px;
+    white-space: nowrap;
+
+    .el-menu-item, .el-submenu__title {
+      border: none !important;
+    }
+
+    .el-menu-item.is-active, .el-submenu.is-active > .el-submenu__title {
+      color: $--color-text-regular !important;
+    }
+  }
+
+  .el-avatar {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+  }
+
+  .ele-header-breadcrumb {
+    padding: 0 10px;
+    height: $--size-head-height;
+    line-height: $--size-head-height + 3px;
+    white-space: nowrap;
+    overflow-y: hidden;
+    flex: 1;
+
+    .el-breadcrumb__item {
+      float: none;
+      display: inline-block;
+    }
+  }
+}
+
+/** 侧边栏 */
+.ele-admin-sidebar {
+  background-color: $--color-white;
+  box-shadow: $--shadow-side-light;
+  width: $--size-side-width !important;
+  min-height: calc(100vh - #{$--size-head-height});
+  transition: width .3s ease-in-out, left .3s ease-in-out;
+  overflow-x: hidden !important;
+  position: relative;
+  z-index: $--z-index-layout + 3;
+
+  & > .el-menu {
+    border: none;
+    background-color: transparent;
+
+    & > .el-menu-item, & > .el-submenu > .el-submenu__title {
+      margin: 0;
+      height: 55px;
+      line-height: 55px;
+    }
+  }
+}
+
+/** 多页签 */
+.ele-admin-tabs {
+  height: $--size-tab-height;
+  padding-right: $--size-tab-height;
+  background-color: $--color-white;
+  box-shadow: $--shadow-head-light;
+  box-sizing: border-box;
+  position: relative;
+  z-index: $--z-index-layout;
+
+  .el-tabs__item {
+    color: $--color-text-secondary;
+    padding: 0 15px !important;
+    height: $--size-tab-height;
+    line-height: $--size-tab-height;;
+    transition: background-color .2s, color .2s;
+
+    &.is-closable {
+      padding-right: 9px !important;
+    }
+
+    &:after {
+      content: "";
+      height: 2px;
+      width: 0;
+      background-color: $--color-primary;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: width .2s;
+    }
+
+    &:hover {
+      color: $--color-text-primary;
+      background-color: rgba(0, 0, 0, .02);
+
+      &:after {
+        width: 100%;
+      }
+    }
+
+    &.is-active {
+      color: $--color-primary;
+      background-color: rgba($--color-primary, .08);
+
+      &:after {
+        width: 100%;
+      }
+    }
+
+    .el-icon-close {
+      margin-left: 4px;
+      color: $--color-text-secondary;
+
+      &:hover {
+        color: #FFF;
+        background-color: $--color-danger;
+      }
+    }
+  }
+
+  .el-tabs__active-bar, .el-tabs__content {
+    display: none;
+  }
+
+  @mixin tabs-btn {
+    width: $--size-tab-height;
+    height: $--size-tab-height;
+    line-height: $--size-tab-height;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: $--font-size-medium;
+    color: $--color-text-secondary;
+    transition: background-color .2s;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, .02);
+    }
+  }
+
+  .el-tabs__nav-wrap {
+    padding: 0 $--size-tab-height;
+
+    &:before, &:after {
+      @include tabs-btn;
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-family: 'element-icons' !important;
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      cursor: not-allowed;
+    }
+
+    &:before {
+      content: "\e6de";
+    }
+
+    &:after {
+      content: "\e6e0";
+      right: 0;
+      left: auto;
+      bottom: auto;
+      height: auto;
+      background-color: transparent;
+    }
+
+    &.is-scrollable {
+      padding: 0 ($--size-tab-height - 1px) 0 $--size-tab-height;
+
+      &:before, &:after {
+        display: none;
+      }
+    }
+  }
+
+  .el-tabs__nav-next, .el-tabs__nav-prev {
+    @include tabs-btn;
+
+    i {
+      vertical-align: middle;
+      margin-top: -4px;
+    }
+  }
+
+  .ele-tabs-drop {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    .el-icon-arrow-down {
+      @include tabs-btn;
+      display: inline-block;
+      cursor: pointer;
+    }
+  }
+}
+
+.ele-tabs-show .ele-admin-header {
+  box-shadow: 0 1px 0 $--border-color-extra-light;
+}
+
+/** 折叠侧边栏 */
+.ele-layout-collapse {
+  .ele-admin-logo > span {
+    display: none;
+  }
+
+  .ele-admin-logo, .ele-admin-sidebar, .ele-admin-sidebar .el-menu--collapse {
+    width: $--size-side-width-collapse !important;
+  }
+
+  .ele-admin-sidebar .el-menu--collapse > li > .el-tooltip, .ele-admin-sidebar .el-menu--collapse > li > .el-submenu__title {
+    padding: 0 !important;
+    text-align: center !important;
+  }
+}
+
+/** 主题风格 */
+/* 固定顶栏 */
+.ele-layout-fixed {
+  padding-top: $--size-head-height;
+
+  .ele-admin-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .ele-admin-sidebar {
+    position: fixed;
+    top: $--size-head-height;
+    bottom: 0;
+    left: 0;
+  }
+
+  .ele-admin-sidebar + .ele-admin-body {
+    padding-left: $--size-side-width;
+    transition: padding-left .3s ease-in-out;
+  }
+
+  &.ele-tabs-show .ele-admin-body {
+    padding-top: $--size-tab-height;
+  }
+
+  .ele-admin-tabs {
+    position: fixed;
+    top: $--size-head-height;
+    left: 0;
+    right: 0;
+    transition: left .3s ease-in-out;
+  }
+
+  .ele-admin-sidebar + .ele-admin-body .ele-admin-tabs {
+    left: $--size-side-width;
+  }
+
+  &.ele-layout-collapse {
+    .ele-admin-sidebar + .ele-admin-body {
+      padding-left: $--size-side-width-collapse;
+    }
+
+    .ele-admin-sidebar + .ele-admin-body .ele-admin-tabs {
+      left: $--size-side-width-collapse;
+    }
+  }
+}
+
+/* 暗色侧边栏 */
+.ele-side-dark {
+  .ele-admin-logo {
+    color: $--color-logo-dark;
+    box-shadow: $--shadow-logo-dark;
+    background-color: $--background-side-dark;
+  }
+
+  .ele-admin-sidebar {
+    box-shadow: $--shadow-side-dark;
+    background-color: $--background-side-dark;
+  }
+}
+
+/* logo宽度自适应 */
+@media screen and (min-width: 768px) {
+  .ele-logo-auto-size {
+    .ele-admin-logo {
+      width: auto !important;
+      padding: 0 15px 0 20px;
+      color: $--color-logo-light;
+      background-color: transparent;
+      box-shadow: none;
+
+      & > span {
+        display: inline-block !important;
+      }
+    }
+
+    .ele-admin-sidebar {
+      z-index: $--z-index-layout + 1;
+    }
+
+    &.ele-head-dark .ele-admin-logo {
+      color: $--color-logo-dark;
+    }
+  }
+}
+
+/* 暗色顶栏 */
+.ele-head-dark .ele-admin-header {
+  background-color: $--background-side-dark;
+  box-shadow: $--shadow-head-dark;
+
+  .el-breadcrumb__separator,
+  .el-breadcrumb__inner, .el-breadcrumb__inner a,
+  .el-breadcrumb__item:last-child .el-breadcrumb__inner,
+  .el-breadcrumb__item:last-child .el-breadcrumb__inner a,
+  .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover,
+  .el-breadcrumb__item:last-child .el-breadcrumb__inner a:hover {
+    color: rgba(255, 255, 255, .65);
+  }
+
+  .el-breadcrumb__inner.is-link {
+    color: rgba(255, 255, 255, .85);
+  }
+
+  .ele-header-left, .ele-header-right {
+    .el-menu-item.is-active, .el-submenu.is-active > .el-submenu__title {
+      color: rgba(255, 255, 255, 0.85) !important;
+    }
+  }
+}
+
+/* 选项卡圆点风格 */
+.ele-tab-dot {
+  .ele-admin-tabs {
+    .el-tabs__item {
+      border-right: 1px solid $--border-color-extra-light;
+
+      &:before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        margin-right: 8px;
+        display: inline-block;
+        background-color: #ddd;
+        border-radius: 50%;
+        transition: background-color .2s;
+      }
+
+      &:after {
+        display: none;
+      }
+
+      &.is-active {
+        &:before {
+          background-color: $--color-primary;
+        }
+      }
+    }
+
+    .el-tabs__nav-wrap:before, .el-tabs__nav-prev {
+      border-right: 1px solid $--border-color-extra-light;
+    }
+
+    .el-tabs__nav-wrap:after, .el-tabs__nav-next, .ele-tabs-drop .el-icon-arrow-down {
+      border-left: 1px solid $--border-color-extra-light;
+    }
+  }
+}
+
+/* 选项卡卡片风格 */
+@mixin card-tab-item {
+  border-radius: 4px;
+  height: $--size-tab-height - $--padding-tab-card;
+  line-height: $--size-tab-height - $--padding-tab-card;
+}
+
+.ele-tab-card {
+  .ele-admin-header {
+    box-shadow: $--shadow-head-light;
+  }
+
+  .ele-admin-tabs {
+    padding-top: $--padding-tab-card;
+    background-color: $--background-color-body;
+    box-shadow: 0 10px 0 $--background-color-body;
+
+    .el-tabs__item {
+      @include card-tab-item;
+      background-color: $--color-white;
+
+      &:after {
+        display: none;
+      }
+
+      &.is-active {
+        background-color: $--color-primary;
+        color: #FFF;
+
+        .el-icon-close {
+          color: #FFF;
+        }
+      }
+
+      & + .el-tabs__item {
+        margin-left: 8px;
+      }
+    }
+
+    .el-tabs__nav-wrap {
+      &:before, &:after {
+        @include card-tab-item;
+      }
+    }
+
+    .el-tabs__nav-next, .el-tabs__nav-prev {
+      @include card-tab-item;
+      background-color: transparent;
+    }
+
+    .ele-tabs-drop {
+      top: $--padding-tab-card;
+      right: $--padding-tab-card;
+
+      .el-icon-arrow-down {
+        @include card-tab-item;
+        width: $--size-tab-height - $--padding-tab-card;
+        background-color: $--color-white;
+      }
+    }
+  }
+}
+
+/* 侧边栏彩色图标 */
+.ele-side-color-icon {
+  .ele-admin-sidebar > .el-menu > li {
+    & > .el-submenu__title > i:first-child, & > i:first-child, & > .el-tooltip > i:first-child {
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+      font-size: 14px;
+      color: #FFF !important;
+      background-color: #61b2fc;
+      border-radius: 50%;
+      text-align: center;
+    }
+
+    &:nth-child(even) {
+      & > .el-submenu__title > i:first-child, & > i:first-child, & > .el-tooltip > i:first-child {
+        background-color: #7dd733;
+      }
+    }
+
+    &:nth-child(3) {
+      & > .el-submenu__title > i:first-child, & > i:first-child, & > .el-tooltip > i:first-child {
+        background-color: #32a2d4;
+      }
+    }
+
+    &:nth-child(4) {
+      & > .el-submenu__title > i:first-child, & > i:first-child, & > .el-tooltip > i:first-child {
+        background-color: #7383cf;
+      }
+    }
+
+    &:nth-child(5) {
+      & > .el-submenu__title > i:first-child, & > i:first-child, & > .el-tooltip > i:first-child {
+        background-color: #F5686F;
+      }
+    }
+
+    &:nth-child(6) {
+      & > .el-submenu__title > i:first-child, & > i:first-child, & > .el-tooltip > i:first-child {
+        background-color: #2bccce;
+      }
+    }
+
+    &:nth-child(7) {
+      & > .el-submenu__title > i:first-child, & > i:first-child, & > .el-tooltip > i:first-child {
+        background-color: #7dd733;
+      }
+    }
+
+    &:nth-child(8) {
+      & > .el-submenu__title > i:first-child, & > i:first-child, & > .el-tooltip > i:first-child {
+        background-color: #FAAD14;
+      }
+    }
+  }
+
+  .ele-admin-sidebar .el-submenu > .el-menu > li {
+    & > .el-submenu__title > i:first-child:not(.el-submenu__icon-arrow),
+    & > i:first-child:not(.el-submenu__icon-arrow) {
+      width: 8px;
+      height: 8px;
+      line-height: 8px;
+      font-size: 30px;
+      overflow: hidden;
+      border-radius: 50%;
+      margin: 0 0 0 10px;
+      opacity: .25;
+
+      &:before {
+        content: "\e797";
+        margin-left: -11px;
+        font-family: 'element-icons' !important;
+      }
+    }
+  }
+
+  &.ele-side-dark .ele-admin-sidebar .el-submenu > .el-menu > li {
+    & > .el-submenu__title > i:first-child:not(.el-submenu__icon-arrow),
+    & > i:first-child:not(.el-submenu__icon-arrow) {
+      opacity: 1;
+    }
+  }
+
+  .ele-admin-sidebar .el-menu-item.is-active i {
+    opacity: 1 !important;
+  }
+}
+
+/** 移动设备下样式 */
+@mixin shade-hide {
+  left: 0;
+  right: 100vw;
+  background-color: transparent;
+  visibility: hidden;
+}
+
+.ele-admin-shade {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: $--z-index-layout + 2;
+  transition: background-color .3s ease-in-out, left .3s ease-in-out;
+  @include shade-hide;
+}
+
+@media screen and (max-width: 768px) {
+  .ele-admin-sidebar, .ele-admin-header .ele-admin-logo {
+    position: fixed;
+    left: 0;
+    z-index: $--z-index-layout + 3 !important;
+  }
+
+  .ele-admin-logo > span {
+    display: inline-block !important;
+  }
+
+  .ele-admin-body {
+    padding-left: 0 !important;
+  }
+
+  .ele-admin-tabs {
+    left: 0 !important;
+  }
+
+  .ele-admin-shade {
+    left: $--size-side-width;
+    right: 0;
+    visibility: visible;
+    background-color: rgba(0, 0, 0, .5);
+  }
+
+  .ele-layout-collapse {
+    .ele-admin-sidebar, .ele-admin-logo {
+      left: -$--size-side-width;
+      width: $--size-side-width !important;
+      box-shadow: none;
+    }
+
+    .ele-admin-shade {
+      @include shade-hide;
+    }
+  }
+
+  .ele-admin-header .ele-header-breadcrumb .el-breadcrumb__item {
+    display: none;
+  }
+}
+
+/** 主体内容定宽 */
+.ele-admin-body-limit .ele-body {
+  max-width: 1200px;
+  margin: 0 auto;
+}
